@@ -36,7 +36,7 @@ function query() {
             var str = "";
             for (i in data) {
                 var date = new Date(data[i].uploadDate);
-                var date_str = date.toLocaleDateString() + " " + date.toLocaleTimeString();
+                var date_str = date.toDateString() + " " + date.toTimeString();
                 str += "<tr>" +
                     "<td>" + data[i].contractCode + "</td>" +
                     // "<td>" + data[i].uploadDate + "</td>" +
