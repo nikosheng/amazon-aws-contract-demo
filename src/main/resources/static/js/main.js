@@ -18,6 +18,8 @@ function query() {
     var search = {}
     var tbody = window.document.getElementById("tbody-result");
     search["contractCode"] = $("#contractCode").val();
+    search["upload1"] = $("#upload1").val();
+    search["upload2"] = $("#upload2").val();
 
     $("#btn-search").prop("disabled", true);
     $.ajax({
