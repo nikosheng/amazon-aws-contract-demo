@@ -35,9 +35,12 @@ function query() {
 
             var str = "";
             for (i in data) {
+                var date = new Date(data[i].uploadDate);
+                var date_str = date.toLocaleDateString() + " " + date.toLocaleTimeString();
                 str += "<tr>" +
                     "<td>" + data[i].contractCode + "</td>" +
-                    "<td>" + data[i].uploadDate + "</td>" +
+                    // "<td>" + data[i].uploadDate + "</td>" +
+                    "<td>" + date_str + "</td>" +
                     "<td>" + data[i].bucketName + "</td>" +
                     "<td>" + data[i].objectKey + "</td>" +
                     "</tr>";
