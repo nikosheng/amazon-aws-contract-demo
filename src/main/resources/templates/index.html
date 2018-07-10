@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{css/default.css}" rel="stylesheet"/>
+    <title>Amazon Web Service - Contract</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Amazon AWS Contract Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container" style="min-height: 50px">
+        <div class="starter-template">
+            <form class="form-horizontal" id="search-form">
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Contract Number</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="contractCode"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" id="bth-search"
+                                class="btn btn-primary btn-lg">Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!--<form class="form-horizontal" id="download-form">-->
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-2 col-sm-10">-->
+                        <!--<button type="submit" id="bth-download"-->
+                                <!--class="btn btn-primary btn-lg">Download-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        </div>
+    </div>
+
+    <table class="table table-hover table-condensed">
+        <legend>
+            <strong>Contract List</strong>
+        </legend>
+        <thead>
+        <tr>
+            <th>Contract Code</th>
+            <th>Upload Date</th>
+            <th>Bucket</th>
+            <th>Object Key</th>
+        </tr>
+        </thead>
+        <tbody id="tbody-result">
+        </tbody>
+    </table>
+</body>
+</html>
