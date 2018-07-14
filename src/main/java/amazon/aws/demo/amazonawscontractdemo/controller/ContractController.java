@@ -32,6 +32,7 @@ import java.util.Map;
  */
 @Controller
 @Slf4j
+@RequestMapping("/contract")
 public class ContractController {
     @Autowired
     private IDynamodbService dynamodbService;
@@ -41,7 +42,7 @@ public class ContractController {
         return "index";
     }
 
-    @RequestMapping("/query/contract")
+    @RequestMapping("/query")
     @ResponseBody
     public List<Contract> query(@RequestBody Map<String, Object> payload) {
         String contractCode = (String) payload.get("contractCode");
