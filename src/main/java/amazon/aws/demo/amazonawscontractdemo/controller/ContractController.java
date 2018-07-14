@@ -52,7 +52,6 @@ public class ContractController {
             contracts =
                     dynamodbService.query(Constants.TABLE_CONTRACTS, "upload_date", upload1, upload2);
         }
-
         return contracts;
     }
 
