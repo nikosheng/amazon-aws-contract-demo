@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  variables:
+    IMAGE_REPO_NAME: contracts
+    PROJECT_NAME: aws/amazon-aws-contract-demo
+    IMAGE_TAG: latest
+    AWS_ACCOUNT_ID: 379951292773
+    AWS_DEFAULT_REGION: us-east-1
+
+phases:
+  pre_build:
+    commands:
+      - echo Loggin in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean install dockerfile:build -DskipTests
+      - echo Building the Docker image...
+      - docker build -t $PROJECT_NAME:$IMAGE_TAG .
+      - docker tag $PROJECT_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
