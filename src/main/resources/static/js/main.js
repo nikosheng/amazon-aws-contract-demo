@@ -26,7 +26,7 @@ function query() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: base + "/contract/query",
+        url: "/contract/query",
         data: JSON.stringify(search),
         dataType: 'json',
         cache: false,
