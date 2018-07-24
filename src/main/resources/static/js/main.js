@@ -15,7 +15,8 @@ $(document).ready(function () {
 });
 
 function query() {
-    var search = {}
+    var base = "http://localhost:8081";
+    var search = {};
     var tbody = window.document.getElementById("tbody-result");
     search["contractCode"] = $("#contractCode").val();
     search["upload1"] = $("#upload1").val();
@@ -25,7 +26,7 @@ function query() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "/contract/query",
+        url: base + "/contract/query",
         data: JSON.stringify(search),
         dataType: 'json',
         cache: false,
