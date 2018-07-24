@@ -37,12 +37,6 @@ public class ContractController {
     @Autowired
     private IDynamodbService dynamodbService;
 
-    @RequestMapping("/test")
-    @ResponseBody
-    public String test() {
-        return "test";
-    }
-
     @RequestMapping("/query")
     @ResponseBody
     public List<Contract> query(@RequestBody Map<String, Object> payload) {

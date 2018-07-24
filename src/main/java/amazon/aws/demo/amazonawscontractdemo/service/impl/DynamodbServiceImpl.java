@@ -10,6 +10,7 @@ import com.amazonaws.services.dynamodbv2.document.spec.ScanSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.NameMap;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,10 +25,11 @@ import java.util.List;
 @Service
 @Slf4j
 public class DynamodbServiceImpl implements IDynamodbService {
+    @Autowired
+    private DynamoDB dynamoDB;
 
     @Override
     public List<Contract> query(String tableName, String attribute, Object value) {
-        DynamoDB dynamoDB = DynamoDBClient.getDynamoDBClient();
         Table table = dynamoDB.getTable(tableName);
         List<Contract> contracts = new ArrayList<>();
         QuerySpec spec = new QuerySpec()
@@ -48,7 +50,6 @@ public class DynamodbServiceImpl implements IDynamodbService {
 
     @Override
     public List<Contract> query(String tableName, String attribute, Object val1, Object val2) {
-        DynamoDB dynamoDB = DynamoDBClient.getDynamoDBClient();
         Table table = dynamoDB.getTable(tableName);
         List<Contract> contracts = new ArrayList<>();
         ScanSpec spec = new ScanSpec()
