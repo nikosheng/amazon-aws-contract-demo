@@ -5,7 +5,7 @@ spring:
     cache: false
     content-type: text/html
     encoding: UTF-8
-  mvc:
-    view:
-      prefix: /WEB-INF/templates/
-      suffix: html
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/templates/
+#      suffix: html
